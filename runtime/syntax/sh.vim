@@ -81,6 +81,9 @@ endif
 if !exists("s:sh_fold_ifdofor")
  let s:sh_fold_ifdofor  = and(g:sh_fold_enabled,4)
 endif
+if !exists("s:sh_fold_expressions")
+ let s:sh_fold_expressions = and(g:sh_fold_enabled,8)
+endif
 if g:sh_fold_enabled && &fdm == "manual"
  " Given that	the	user provided g:sh_fold_enabled
  " 	AND	g:sh_fold_enabled is manual (usual default)
@@ -113,6 +116,11 @@ if s:sh_fold_ifdofor
  com! -nargs=* ShFoldIfDoFor <args> fold
 else
  com! -nargs=* ShFoldIfDoFor <args>
+endif
+if s:sh_fold_expressions
+ com! -nargs=* ShFoldExpr <args> fold
+else
+ com! -nargs=* ShFoldExpr <args>
 endif
 
 " sh syntax is case sensitive {{{1
@@ -213,7 +221,7 @@ syn match   shPattern	"\<\S\+\())\)\@="	contained contains=shExSingleQuote,shSin
 
 " Subshells: {{{1
 " ==========
-syn region shExpr  transparent matchgroup=shExprRegion  start="{" end="}"		contains=@shExprList2 nextgroup=shSpecialNxt
+ShFoldExpr syn region shExpr  transparent matchgroup=shExprRegion  start="{" end="}"	contains=@shExprList2 nextgroup=shSpecialNxt
 syn region shSubSh transparent matchgroup=shSubShRegion start="[^(]\zs(" end=")"	contains=@shSubShList nextgroup=shSpecialNxt
 
 " Tests: {{{1
@@ -711,6 +719,7 @@ endif
 delc ShFoldFunctions
 delc ShFoldHereDoc
 delc ShFoldIfDoFor
+delc ShFoldExpr
 
 " Set Current Syntax: {{{1
 " ===================

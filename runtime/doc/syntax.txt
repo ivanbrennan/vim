@@ -2908,6 +2908,7 @@ The syntax/sh.vim file provides several levels of syntax-based folding: >
 	let g:sh_fold_enabled= 1     (enable function folding)
 	let g:sh_fold_enabled= 2     (enable heredoc folding)
 	let g:sh_fold_enabled= 4     (enable if/do/for folding)
+	let g:sh_fold_enabled= 8     (enable { expression-list; } folding)
 >
 then various syntax items (ie. HereDocuments and function bodies) become
 syntax-foldable (see |:syn-fold|).  You also may add these together
