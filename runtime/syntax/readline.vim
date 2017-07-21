@@ -119,29 +119,34 @@ syn keyword readlineVariable    contained
                               \ nextgroup=readlineBoolean
                               \ skipwhite
                               \ bind-tty-special-chars
+                              \ blink-matching-paren
+                              \ colored-completion-prefix
+                              \ colored-stats
                               \ completion-ignore-case
                               \ completion-map-case
                               \ convert-meta
                               \ disable-completion
                               \ echo-control-characters
+                              \ enable-bracketed-paste
                               \ enable-keypad
                               \ enable-meta-key
                               \ expand-tilde
                               \ history-preserve-point
                               \ horizontal-scroll-mode
                               \ input-meta
-                              \ meta-flag
                               \ mark-directories
                               \ mark-modified-lines
                               \ mark-symlinked-directories
                               \ match-hidden-files
                               \ menu-complete-display-prefix
+                              \ meta-flag
                               \ output-meta
                               \ page-completions
                               \ print-completions-horizontally
                               \ revert-all-at-newline
                               \ show-all-if-ambiguous
                               \ show-all-if-unmodified
+                              \ show-mode-in-prompt
                               \ skip-completed-text
                               \ visible-stats
 
@@ -149,7 +154,10 @@ syn keyword readlineVariable    contained
                               \ nextgroup=readlineString
                               \ skipwhite
                               \ comment-begin
+                              \ emacs-mode-string
                               \ isearch-terminators
+                              \ vi-cmd-mode-string
+                              \ vi-ins-mode-string
 
 syn keyword readlineVariable    contained
                               \ nextgroup=readlineNumber
@@ -158,6 +166,7 @@ syn keyword readlineVariable    contained
                               \ completion-prefix-display-length
                               \ completion-query-items
                               \ history-size
+                              \ keyseq-timeout
 
 syn keyword readlineVariable    contained
                               \ nextgroup=readlineEditingMode
